@@ -21,6 +21,16 @@ public-port: {{index $endpoint "public_port"}}
 
 specifically useful if you use a sub-template and you want to pass multiple values to it.
 
+### slice
+
+Creates a string slice (`[]string`) from a list of strings
+
+```
+{{$slice := slice "foo" "bar" $some_foo}}
+
+Auth header: {{base64Encode (join (slice (getv "/username") (getv "/password")) ":")}}
+```
+
 ### base
 
 Alias for the [path.Base](https://golang.org/pkg/path/#Base) function.
